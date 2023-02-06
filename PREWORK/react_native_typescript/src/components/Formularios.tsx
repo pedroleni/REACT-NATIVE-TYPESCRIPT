@@ -27,7 +27,7 @@ export const Formularios = () => {
                 value={ password }
                 onChange={ ({ target }) => onChange( target.value, 'password') }
             />
-
+            {/* etiqueta code para visualizar los json en forma de string */}
             <code>
                 <pre>{ JSON.stringify( formulario, null, 2 ) }</pre>
             </code>
