@@ -25,6 +25,7 @@ type LoginPayload = {
 
 type AuthAction = 
     | { type: 'logout' }
+    // payload es la informacion adiccional de la accion
     | { type: 'login', payload: LoginPayload };
 
 

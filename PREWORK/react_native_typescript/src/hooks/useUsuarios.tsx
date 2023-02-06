@@ -10,19 +10,19 @@ export const useUsuarios = () => {
     const paginaRef = useRef(1);
 
     useEffect(() => {
-        // llamado al API
+        // Llamar a la API del los usuarios
         cargarUsuarios();
     }, [])
 
 
     const cargarUsuarios = async() => {
-        
+        /// en las llaves vendrá el objeto que configura la llamada
         const resp = await reqResApi.get<ReqResListado>('/users', {
             params: {
                 page: paginaRef.current
             }
         })
-
+        console.log(resp.data.data)
         if( resp.data.data.length > 0 ){ 
             setUsuarios( resp.data.data );
         } else {
@@ -31,7 +31,7 @@ export const useUsuarios = () => {
         }
 
     }
-
+    // funciones que se utlizan para manejar las paginas
     const paginaSiguiente = () => {
         paginaRef.current ++;
         cargarUsuarios();

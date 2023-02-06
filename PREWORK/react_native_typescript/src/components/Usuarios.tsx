@@ -39,6 +39,7 @@ export const Usuarios = () => {
                 </thead>
                 <tbody>
                     {
+                        // es lo mismo que si pongo usuarios.map((usuario )=>rederItem(usuario)) 
                         usuarios.map( renderItem )
                     }
                 </tbody>
