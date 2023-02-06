@@ -6,6 +6,7 @@ import { reqResApi } from '../api/reqRes';
 export const useUsuarios = () => {
     
     const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+    // Utilizamos el UseRef para crear una referencia de la pagina la cual va manejar los las funciones siguientes
 
     const paginaRef = useRef(1);
 
@@ -19,6 +20,7 @@ export const useUsuarios = () => {
         /// en las llaves vendrá el objeto que configura la llamada
         const resp = await reqResApi.get<ReqResListado>('/users', {
             params: {
+                // con el current accedo al valor de la ref de paginaRef
                 page: paginaRef.current
             }
         })
