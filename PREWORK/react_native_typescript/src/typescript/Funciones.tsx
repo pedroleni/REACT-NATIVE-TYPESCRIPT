@@ -4,7 +4,6 @@ export const Funciones = () => {
         return a + b;
     }
 
-
     return (
         <>
            <h3>Funciones</h3>

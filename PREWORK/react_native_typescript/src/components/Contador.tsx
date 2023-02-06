@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export const Contador = () => {
-
-    const [valor, setValor] = useState(10);
-
+    // valor de typo generico el state useState<numbe>
+    const [valor, setValor] = useState<number>(10);
+    /// En este caso la unica diferencia es el type nuber 
     const acumular = ( numero: number ) => {
         setValor( valor + numero );
     }
