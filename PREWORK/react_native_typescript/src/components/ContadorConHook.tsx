@@ -2,7 +2,7 @@
 import { useCounter } from '../hooks/useCounter';
 
 export const ContadorConHook = () => {
-
+    // le envio como valor inicial de 100
     const { valor, acumular } = useCounter(100);
 
     return (
