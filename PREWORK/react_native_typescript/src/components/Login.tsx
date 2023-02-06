@@ -1,5 +1,8 @@
 import { useEffect, useReducer } from 'react';
 
+
+// ESTO DE AQUI PODRÍA ESTAR EN OTRO ARCHIVO, la logica del useReducer
+
 interface AuthState {
     validando: boolean;
     token: string | null;
@@ -25,9 +28,11 @@ type AuthAction =
     | { type: 'login', payload: LoginPayload };
 
 
+///Tendermos un estado y unas acciones y va a devolver un estado del mismo tipo
 const authReducer = ( state: AuthState, action: AuthAction ): AuthState => {
-
+      
     switch ( action.type ) {
+        // devolverá el estado del logout
         case 'logout':
             return {
                 validando: false,
@@ -35,7 +40,7 @@ const authReducer = ( state: AuthState, action: AuthAction ): AuthState => {
                 nombre: '',
                 username: ''
             }
-
+        // devolverá el estado del login
         case 'login':
             const { nombre, username } = action.payload;
             return {
@@ -44,7 +49,7 @@ const authReducer = ( state: AuthState, action: AuthAction ): AuthState => {
                 nombre,
                 username
             }
-    
+        // Por defecto devuelve un state 
         default:
             return state;
     }
@@ -54,21 +59,24 @@ const authReducer = ( state: AuthState, action: AuthAction ): AuthState => {
 
 
 export const Login = () => {
-
+    // Del state me voy destructurar el validando, el token y nombre 
     const [{ validando, token, nombre }, dispatch] = useReducer(authReducer, initialState);
 
+
+    /// Nada mas iniciar a segundo y medio me va a dar el typo logout
     useEffect(() => {
         setTimeout(() => {
             dispatch({ type: 'logout' });
         }, 1500);
     }, []);
 
+    // La funcion login mandare por el type login, y luego por payload el nombre y el username
     const login = () => {
         dispatch({ 
             type: 'login', 
             payload: {
-                nombre: 'Fernando',
-                username: 'Strider'
+                nombre: 'Pedro',
+                username: 'Lerida'
             } 
         })
     }
