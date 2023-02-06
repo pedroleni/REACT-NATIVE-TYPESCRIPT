@@ -1,4 +1,5 @@
 export const Funciones = () => {
+    // aqui se pone el valor del typo en las variables y en el typo del return
 
     const sumar = ( a: number, b: number ):number => {
         return a + b;
